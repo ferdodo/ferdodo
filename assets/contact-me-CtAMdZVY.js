@@ -1,0 +1,1 @@
+import{R as e}from"./index-C5xVgyTo.js";function n(){return e.createElement("section",{style:{display:"grid",placeContent:"center"}},e.createElement("fp-typography",{style:{textAlign:"center"}},e.createElement("h1",null,"Contact Me"),e.createElement("img",{src:"./contact.png",alt:"Contact Me"})))}export{n as ContactMe};
