@@ -1,0 +1,14 @@
+
+services:
+
+  design-system:
+    build: design-system
+    ports:
+      - "41032:41032"
+
+  portfolio:
+    build: portfolio
+    ports:
+      - "23052:23052"
+    depends_on:
+      - design-system

@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"noEmit": true,
+		"strict": true,
+		"lib": ["es2015", "DOM", "DOM.Iterable"],
+		"target": "ESNext",
+		"moduleResolution": "Bundler",
+		"jsx": "react"
+	}
+}

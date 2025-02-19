@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> portfolio design system </title>
+		<link rel="icon" href="./favicon.ico" type="image/x-icon">
+		<meta name="viewport" content="width=device-width, initial-scale=0.85, user-scalable=no">
+		<link rel="stylesheet" href="./portfolio-design-system.css">
+		<script type="module" src="./src/main.ts"></script>
+	</head>
+
+	<body>
+		<h1> Portfolio design system </h1>
+
+		<h2> Background </h2>
+		<div style="padding: 3rem;">
+			<fp-background style="width: 10rem; height: 10rem;"> </fp-background>
+		</div>
+
+		<h2> Typography </h2>
+		<div style="padding: 3rem; max-width: 20rem;">
+			<fp-typography>
+				<h1> H1 title </h1>
+
+				<h2> H2 title </h2>
+				<h2 class="secondary"> H2 title secondary </h2>
+
+				<p> 
+					(Paragraph) Lorem ipsum odor amet, consectetuer adipiscing elit. Ornare semper semper, consectetur mattis facilisi congue. Aenean feugiat faucibus tempus convallis; curae maecenas. Dignissim luctus rhoncus platea, ex faucibus diam. Tristique finibus risus mattis sodales ante. Ut id imperdiet consequat senectus tincidunt sodales id. Dis non nascetur platea euismod, ullamcorper a potenti. Congue ridiculus gravida per natoque quam.
+				</p>
+
+				<p class="secondary"> 
+					(Paragraph secondary) Lorem ipsum odor amet, consectetuer adipiscing elit. Ornare semper semper, consectetur mattis facilisi congue. Aenean feugiat faucibus tempus convallis; curae maecenas. Dignissim luctus rhoncus platea, ex faucibus diam. Tristique finibus risus mattis sodales ante. Ut id imperdiet consequat senectus tincidunt sodales id. Dis non nascetur platea euismod, ullamcorper a potenti. Congue ridiculus gravida per natoque quam.
+				</p>
+
+				<ul>
+					<li> List item 1 </li>
+					<li> List item 2 </li>
+					<li> List item 3 </li>
+				</ul>
+			</fp-typography>
+		</div>
+
+		<h2> Tech illustration </h2>
+
+		<fp-beaker></fp-beaker>
+
+		<h2> Scroll indicator </h2>
+
+		<fp-scroll-indicator></fp-scroll-indicator>
+
+		<h2>Side project</h2>
+
+		<fp-background>
+			<div style="padding: 10rem; display: flex; gap: 2rem;">
+				<fp-side-project>
+					<span slot="title">My project</span>
+					<span slot="description">This is a description of my project</span>
+					<img slot="illustration" src="./example.jpg" alt="project image">
+					<a slot="link" href="https://www.google.com">Link</a>
+					<a slot="github" href="https://www.google.com">Github</a>
+					<span slot="tag-1">HTML</span>
+					<span slot="tag-2">CSS</span>
+					<span slot="tag-3">Js</span>
+				</fp-side-project>
+
+				<fp-side-project>
+					<span slot="title">My second project but rather long title</span>
+					<span slot="description">This is a description of my second project. But this time. this is a rather long description indeed.</span>
+					<img slot="illustration" src="./example.jpg" alt="project image">
+					<a slot="link" href="https://www.google.com">Link</a>
+					<a slot="github" href="https://www.google.com">Github</a>
+						<span slot="tag-1">HTML</span>
+						<span slot="tag-2">CSS</span>
+						<span slot="tag-3">Js</span>
+						<span slot="tag-4">React</span>
+						<span slot="tag-5">Node</span>
+						<span slot="tag-6">Express</span>
+						<span slot="tag-7">MongoDB</span>
+						<span slot="tag-8">GraphQL</span>
+				</fp-side-project>
+			</div>
+		</fp-background>
+
+	</body>
+</html>

@@ -1,0 +1,19 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+*:has(> section) {
+	height: 100svh;
+	overflow-y: scroll;
+	scroll-snap-type: y mandatory;
+}
+
+section {
+	height: 100svh;
+	scroll-snap-align: start;
+	display: grid;
+	place-content: center;
+}

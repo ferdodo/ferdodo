@@ -1,0 +1,37 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: build
+
+    steps:
+      - name: 🛒 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🏗️ Build design system
+        run: |
+          npm install
+          npm audit --audit-level=high
+          npm run build
+        working-directory: ./design-system
+
+      - name: 🏗️ Build portfolio
+        run: |
+          npm install
+          npm audit --audit-level=high
+          npm run build
+        working-directory: ./portfolio
+
+      - name: 🚀 Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.6.4
+        with:
+          folder: ./portfolio/dist
