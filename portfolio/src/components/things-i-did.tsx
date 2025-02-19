@@ -1,5 +1,5 @@
 import React from "react";
-import { getSideProjets } from "../../utils/get-side-projetcts";
+import { getSideProjets } from "../utils/get-side-projetcts";
 import { SideProjectEntry } from "./side-project-entry";
 
 export function ThingsIDid() {

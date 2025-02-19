@@ -1,5 +1,5 @@
 import React from "react";
-import type { SideProject } from "../../types/side-projet";
+import type { SideProject } from "../types/side-projet";
 
 export function SideProjectEntry(sideProject: SideProject) {
 	return (
