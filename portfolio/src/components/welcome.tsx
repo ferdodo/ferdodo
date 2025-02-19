@@ -39,7 +39,7 @@ export function Welcome() {
 			>
 				<img
 					src="./avataaars.png"
-					fetchpriority="high"
+					fetchPriority="high"
 					alt="Thomas Riffard"
 					style={{
 						maxWidth: "30vw",
