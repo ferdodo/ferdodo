@@ -34,10 +34,10 @@ const template = createTemplate(html`
 	</style>
 
 	<div className="container">
-		<img src="./beaker.png"/>
+		<img loading="lazy" src="./beaker.png"/>
 		<div id="matter-mount-point"></div>
-		<img src="./beaker-mask.png"/>
-		<img src="./beaker-front.png"/>
+		<img loading="lazy" src="./beaker-mask.png"/>
+		<img loading="lazy" src="./beaker-front.png"/>
 	</div>
 `);
 
