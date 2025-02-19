@@ -1,10 +1,26 @@
 import React from "react";
+import { lazy } from "react";
 import { createRoot } from "react-dom/client";
 import { loadDesignSystem } from "design-system/src/utils/load-design-system";
 import { Welcome } from "./components/welcome";
-import { WhatIDo } from "./components/what-i-do";
-import { ThingsIDid } from "./components/things-i-did";
-import { ContactMe } from "./components/contact-me";
+
+const WhatIDo = lazy(() =>
+	import("./components/what-i-do").then((module) => ({
+		default: module.WhatIDo,
+	})),
+);
+
+const ThingsIDid = lazy(() =>
+	import("./components/things-i-did").then((module) => ({
+		default: module.ThingsIDid,
+	})),
+);
+
+const ContactMe = lazy(() =>
+	import("./components/contact-me").then((module) => ({
+		default: module.ContactMe,
+	})),
+);
 
 declare module "react" {
 	namespace JSX {
