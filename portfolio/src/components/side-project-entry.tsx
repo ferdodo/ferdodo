@@ -6,7 +6,6 @@ export function SideProjectEntry(sideProject: SideProject) {
 		<fp-side-project style={{ scrollSnapAlign: "start", zIndex: "1" }}>
 			<img
 				slot="illustration"
-				loading="lazy"
 				src={sideProject.illustration}
 				alt={sideProject.title}
 			/>
