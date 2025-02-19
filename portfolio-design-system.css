@@ -1,0 +1,10 @@
+:root {
+	--ferdodo-portfolio-color-background: #f4f6fa;
+	--ferdodo-portfolio-color-text: #333;
+	--ferdodo-portfolio-color-text-primary: #007bff;
+	--ferdodo-portfolio-color-text-secondary: #6c757d;
+	--ferdodo-portfolio-color-primary: var(--ferdodo-portfolio-color-text-primary);
+	--ferdodo-portfolio-color-lighter-primary: #cce5ff59;
+	--ferdodo-portfolio-color-lighter: #ffffffdb;
+	--ferdodo-portfolio-color-darker: #0000000d;
+}
