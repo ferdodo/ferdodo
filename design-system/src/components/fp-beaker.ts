@@ -1,14 +1,14 @@
-import htm from "htm";
-import h from "hyperscript";
-import { getShadowRoot } from "../utils/get-shadow-root.js";
-import { createTemplate } from "../utils/create-template.js";
 import { Engine, Render, Runner, Bodies, Composite } from "matter-js";
+import { html } from "../utils/html.js";
 
-const html = htm.bind(h);
 const tagName = "fp-beaker";
 
-const template = createTemplate(html`
+const template = html`
 	<style>
+		:host {
+			display: block;
+		}
+
 		.container {
 			display: grid;
 			grid-template-columns: 1fr;
@@ -33,13 +33,13 @@ const template = createTemplate(html`
 		}
 	</style>
 
-	<div className="container">
+	<div class="container">
 		<img loading="lazy" src="./beaker.png"/>
 		<div id="matter-mount-point"></div>
 		<img loading="lazy" src="./beaker-mask.png"/>
 		<img loading="lazy" src="./beaker-front.png"/>
 	</div>
-`);
+`;
 
 class Beaker extends HTMLElement {
 	static get observedAttributes() {
@@ -48,9 +48,8 @@ class Beaker extends HTMLElement {
 
 	async connectedCallback() {
 		this.attachShadow({ mode: "open" });
-		const shadowRoot = getShadowRoot(this);
 		const clonedTemplate = template.content.cloneNode(true);
-		shadowRoot.appendChild(clonedTemplate);
+		this.shadowRoot?.appendChild(clonedTemplate);
 		this.render();
 	}
 

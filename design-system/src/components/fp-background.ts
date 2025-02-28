@@ -1,12 +1,8 @@
-import htm from "htm";
-import h from "hyperscript";
-import { getShadowRoot } from "../utils/get-shadow-root.js";
-import { createTemplate } from "../utils/create-template.js";
+import { html } from "../utils/html.js";
 
-const html = htm.bind(h);
 const tagName = "fp-background";
 
-const template = createTemplate(html`
+const template = html`
 	<style>
 		:host {
 			display: block;
@@ -16,7 +12,7 @@ const template = createTemplate(html`
 	</style>
 
 	<slot></slot>
-`);
+`;
 
 class FpBackground extends HTMLElement {
 	static get observedAttributes() {
@@ -25,9 +21,8 @@ class FpBackground extends HTMLElement {
 
 	async connectedCallback() {
 		this.attachShadow({ mode: "open" });
-		const shadowRoot = getShadowRoot(this);
 		const clonedTemplate = template.content.cloneNode(true);
-		shadowRoot.appendChild(clonedTemplate);
+		this.shadowRoot?.appendChild(clonedTemplate);
 	}
 }
 

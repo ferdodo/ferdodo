@@ -5,12 +5,7 @@
 		"start": "vite --port 41032 --host"
 	},
 	"devDependencies": {
-		"@types/d3": "^7.4.3",
-		"@types/hyperscript": "^0.0.7",
 		"@types/matter-js": "^0.19.8",
-		"d3": "^7.9.0",
-		"htm": "^3.1.1",
-		"hyperscript": "^2.0.2",
 		"matter-js": "^0.20.0",
 		"typescript": "^5.7.3",
 		"vite": "^6.1.0"

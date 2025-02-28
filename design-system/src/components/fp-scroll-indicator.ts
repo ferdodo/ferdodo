@@ -1,12 +1,8 @@
-import htm from "htm";
-import h from "hyperscript";
-import { getShadowRoot } from "../utils/get-shadow-root.js";
-import { createTemplate } from "../utils/create-template.js";
+import { html } from "../utils/html.js";
 
-const html = htm.bind(h);
 const tagName = "fp-scroll-indicator";
 
-const template = createTemplate(html`
+const template = html`
 	<style>
 		div {
 			transform: rotate(90deg);
@@ -38,7 +34,7 @@ const template = createTemplate(html`
 	<div>
 		<span></span>
 	</div>
-`);
+`;
 
 class ScrollIndicator extends HTMLElement {
 	static get observedAttributes() {
@@ -47,9 +43,8 @@ class ScrollIndicator extends HTMLElement {
 
 	async connectedCallback() {
 		this.attachShadow({ mode: "open" });
-		const shadowRoot = getShadowRoot(this);
 		const clonedTemplate = template.content.cloneNode(true);
-		shadowRoot.appendChild(clonedTemplate);
+		this.shadowRoot?.appendChild(clonedTemplate);
 	}
 }
 

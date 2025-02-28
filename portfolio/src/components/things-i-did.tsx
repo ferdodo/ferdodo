@@ -21,6 +21,7 @@ export function ThingsIDid() {
 					overflowY: "scroll",
 					scrollSnapType: "y mandatory",
 					justifyItems: "center",
+					zIndex: 1,
 				}}
 			>
 				{sideProjects.map(SideProjectEntry)}

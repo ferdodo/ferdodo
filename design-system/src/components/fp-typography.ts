@@ -1,12 +1,8 @@
-import htm from "htm";
-import h from "hyperscript";
-import { getShadowRoot } from "../utils/get-shadow-root.js";
-import { createTemplate } from "../utils/create-template.js";
+import { html } from "../utils/html.js";
 
-const html = htm.bind(h);
 const tagName = "fp-typography";
 
-const template = createTemplate(html`
+const template = html`
 	<style>
 		::slotted(*) {
 			color: var(--ferdodo-portfolio-color-text);
@@ -37,7 +33,7 @@ const template = createTemplate(html`
 	</style>
 
 	<slot></slot>
-`);
+`;
 
 class Typography extends HTMLElement {
 	static get observedAttributes() {
@@ -46,9 +42,8 @@ class Typography extends HTMLElement {
 
 	async connectedCallback() {
 		this.attachShadow({ mode: "open" });
-		const shadowRoot = getShadowRoot(this);
 		const clonedTemplate = template.content.cloneNode(true);
-		shadowRoot.appendChild(clonedTemplate);
+		this.shadowRoot?.appendChild(clonedTemplate);
 	}
 }
 

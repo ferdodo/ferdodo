@@ -1,12 +1,8 @@
-import htm from "htm";
-import h from "hyperscript";
-import { getShadowRoot } from "../utils/get-shadow-root.js";
-import { createTemplate } from "../utils/create-template.js";
+import { html } from "../utils/html.js";
 
-const html = htm.bind(h);
 const tagName = "fp-side-project";
 
-const template = createTemplate(html`
+const template = html`
 	<style>
 		.container {
 			width: 20rem;
@@ -64,11 +60,11 @@ const template = createTemplate(html`
 
 	</style>
 
-	<div className="container">
-		<div className="pre-illustration">
+	<div class="container">
+		<div class="pre-illustration">
 			<fp-typography>
 				<h2><slot name="title"></slot></h2>
-				<p className="tags">
+				<p class="tags">
 					<slot name="tag-1"></slot>
 					<slot name="tag-2"></slot>
 					<slot name="tag-3"></slot>
@@ -83,7 +79,7 @@ const template = createTemplate(html`
 		<div>
 			<slot name="illustration"></slot>
 		</div>
-		<div className="description-block">
+		<div class="description-block">
 			<fp-typography>
 				<p>
 					<slot name="description"></slot>
@@ -99,7 +95,7 @@ const template = createTemplate(html`
 			</fp-typography>
 		</div>
 	</div>
-`);
+`;
 
 class SideProjet extends HTMLElement {
 	static get observedAttributes() {
@@ -108,9 +104,8 @@ class SideProjet extends HTMLElement {
 
 	async connectedCallback() {
 		this.attachShadow({ mode: "open" });
-		const shadowRoot = getShadowRoot(this);
 		const clonedTemplate = template.content.cloneNode(true);
-		shadowRoot.appendChild(clonedTemplate);
+		this.shadowRoot?.appendChild(clonedTemplate);
 	}
 }
 
