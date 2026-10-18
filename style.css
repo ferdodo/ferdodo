@@ -2,18 +2,25 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
-}
-
-*:has(> section) {
-	height: 100svh;
-	overflow-y: scroll;
-	scroll-snap-type: y mandatory;
 }
 
 section {
-	height: 100svh;
-	scroll-snap-align: start;
+	min-height: 100svh;
 	display: grid;
 	place-content: center;
+}
+
+.what-i-do-beaker {
+	display: grid;
+}
+
+@media (max-width: 768px) {
+	.what-i-do-beaker,
+	.things-i-did {
+		display: none;
+	}
+
+	body {
+		padding-bottom: 50svh;
+	}
 }
