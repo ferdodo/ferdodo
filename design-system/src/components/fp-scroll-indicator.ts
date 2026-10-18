@@ -17,17 +17,33 @@ const template = html`
 			color: var(--ferdodo-portfolio-color-text-secondary);
 			font-family: "QuicksandBook";
 			font-size: 4rem;
-			animation: move 3s infinite;
-			transition: transform 0.5s;
-			transform: translateX(0);
+			animation: move 3s ease-in-out infinite;
+			transition: scale 0.5s;
 		}
 
 		span:hover {
-			transform: translateX(1rem);
+			animation-play-state: paused;
+			scale: 1.3;
 		}
 
 		span::before {
 			content:">";
+		}
+
+		@keyframes move {
+			0%,
+			100% {
+				transform: translateX(0);
+			}
+			50% {
+				transform: translateX(0.8rem);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			span {
+				animation: none;
+			}
 		}
 	</style>
 

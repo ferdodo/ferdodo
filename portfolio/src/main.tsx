@@ -1,10 +1,13 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { flushSync } from "react-dom";
 import { loadDesignSystem } from "design-system/src/utils/load-design-system";
 import { Welcome } from "./components/welcome";
 import { WhatIDo } from "./components/what-i-do";
 import { ThingsIDid } from "./components/things-i-did";
 import { ContactMe } from "./components/contact-me";
+import { setupSectionSnap } from "./utils/setup-section-snap";
+import { ScrollTrigger } from "./utils/gsap";
 
 declare module "react" {
 	namespace JSX {
@@ -12,6 +15,7 @@ declare module "react" {
 			children?: React.ReactNode;
 			style?: React.CSSProperties;
 			slot?: string;
+			ref?: React.Ref<HTMLElement>;
 		}
 
 		interface IntrinsicElements {
@@ -32,13 +36,19 @@ loadDesignSystem()
 			throw new Error("No root node found !");
 		}
 
-		createRoot(rootNode).render(
-			<>
-				<Welcome />
-				<WhatIDo />
-				<ThingsIDid />
-				<ContactMe />
-			</>,
-		);
+		const root = createRoot(rootNode);
+		flushSync(() => {
+			root.render(
+				<>
+					<Welcome />
+					<WhatIDo />
+					<ThingsIDid />
+					<ContactMe />
+				</>,
+			);
+		});
+
+		setupSectionSnap();
+		ScrollTrigger.refresh();
 	})
 	.catch(console.error);

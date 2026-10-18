@@ -6,8 +6,9 @@ const template = html`
 	<style>
 		::slotted(*) {
 			color: var(--ferdodo-portfolio-color-text);
-			font-family: "QuicksandBook";
+			font-family: "QuicksandBook", sans-serif;
 			font-weight: bold;
+			font-synthesis: none;
 		}
 
 		::slotted(.secondary) {
@@ -29,6 +30,29 @@ const template = html`
 		::slotted(ul) {
 			line-height: 2;
 			font-size: clamp(0.66em, 2vw, 1em);
+		}
+
+		::slotted(li) {
+			transition: transform 0.3s ease;
+		}
+
+		::slotted(li:hover) {
+			transform: translateX(0.5rem);
+		}
+
+		::slotted(a) {
+			transition: color 0.2s ease;
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			::slotted(li),
+			::slotted(a) {
+				transition: none;
+			}
+
+			::slotted(li:hover) {
+				transform: none;
+			}
 		}
 	</style>
 

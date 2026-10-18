@@ -14,9 +14,23 @@ const template = html`
 			grid-template-columns: 1fr;
 			grid-template-rows: 1fr;
 			grid-column-gap: 0px;
-			grid-row-gap: 0px; 
+			grid-row-gap: 0px;
 			align-items: end;
 			z-index:-1;
+			animation: fade-in 1s ease-out both;
+		}
+
+		@keyframes fade-in {
+			from {
+				opacity: 0;
+				transform: translateY(2rem);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.container {
+				animation: none;
+			}
 		}
 
 		.container > * {
@@ -99,10 +113,13 @@ class Beaker extends HTMLElement {
 			}),
 		];
 
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+			return;
+		}
+
 		Composite.add(engine.world, beaker);
 		Render.run(render);
 		const runner = Runner.create();
-		Runner.run(runner, engine);
 
 		const logos = [
 			"./logos/svelte.png",
@@ -142,21 +159,40 @@ class Beaker extends HTMLElement {
 			Composite.add(engine.world, ball);
 		}
 
-		let runnerRunning = true;
+		let running = false;
+		let onScreen = true;
+		let wheelPaused = false;
+		let wheelTimeout: number | undefined;
+
+		const sync = () => {
+			const shouldRun = onScreen && !wheelPaused;
+
+			if (shouldRun && !running) {
+				Runner.run(runner, engine);
+				running = true;
+			} else if (!shouldRun && running) {
+				Runner.stop(runner);
+				running = false;
+			}
+		};
 
 		window.addEventListener("wheel", () => {
-			if (runnerRunning) {
-				Runner.stop(runner);
-				runnerRunning = false;
-			}
+			wheelPaused = true;
+			sync();
 
-			setTimeout(() => {
-				if (!runnerRunning) {
-					Runner.run(runner, engine);
-					runnerRunning = true;
-				}
+			clearTimeout(wheelTimeout);
+			wheelTimeout = window.setTimeout(() => {
+				wheelPaused = false;
+				sync();
 			}, 500);
 		});
+
+		new IntersectionObserver(([entry]) => {
+			onScreen = entry.isIntersecting;
+			sync();
+		}).observe(this);
+
+		sync();
 
 		for (const logo of logos) {
 			addBall(logo);

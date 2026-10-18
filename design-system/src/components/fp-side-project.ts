@@ -12,6 +12,17 @@ const template = html`
 			padding: 1rem;
 		}
 
+		::slotted(a) {
+			transition:
+				transform 0.2s ease,
+				filter 0.2s ease;
+		}
+
+		::slotted(a:hover) {
+			transform: translateY(-2px);
+			filter: brightness(1.15);
+		}
+
 		.pre-illustration {
 			min-height: 9.5rem;
 		}
@@ -56,6 +67,16 @@ const template = html`
 			color: var(--ferdodo-portfolio-color-background);	
 			text-decoration: none;
 
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			::slotted(a) {
+				transition: none;
+			}
+
+			::slotted(a:hover) {
+				transform: none;
+			}
 		}
 
 	</style>

@@ -1,8 +1,70 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "../utils/gsap";
+import { EASE, prefersReducedMotion } from "../utils/motion";
+import { SplitChars } from "./split-chars";
 
 export function Welcome() {
+	const sectionRef = useRef<HTMLElement>(null);
+	const avatarWrapperRef = useRef<HTMLDivElement>(null);
+	const avatarRef = useRef<HTMLImageElement>(null);
+
+	useGSAP(
+		() => {
+			const hideScrollIndicator = () => {
+				window.removeEventListener("wheel", hideScrollIndicator);
+				window.removeEventListener("touchstart", hideScrollIndicator);
+				gsap.killTweensOf("fp-scroll-indicator");
+				gsap.to("fp-scroll-indicator", { opacity: 0, duration: 0.5 });
+			};
+
+			window.addEventListener("wheel", hideScrollIndicator, { passive: true });
+			window.addEventListener("touchstart", hideScrollIndicator, { passive: true });
+
+			if (prefersReducedMotion()) {
+				return;
+			}
+
+			const intro = gsap.timeline({ defaults: { ease: EASE.out } });
+
+			intro
+				.from("[data-char]", {
+					yPercent: 110,
+					opacity: 0,
+					rotate: 6,
+					duration: 0.9,
+					stagger: 0.04,
+				})
+				.from(
+					"[data-intro]",
+					{ y: 30, opacity: 0, duration: 0.8, stagger: 0.12 },
+					"-=0.5",
+				)
+				.from(
+					avatarRef.current,
+					{ scale: 0.6, rotate: -8, opacity: 0, duration: 1.1, ease: EASE.spring },
+					0.2,
+				);
+
+			gsap.from("fp-scroll-indicator", { opacity: 0, duration: 1, delay: 1.5 });
+
+			gsap.to(avatarWrapperRef.current, {
+				yPercent: -20,
+				ease: "none",
+				scrollTrigger: {
+					trigger: sectionRef.current,
+					start: "top top",
+					end: "bottom top",
+					scrub: 0.6,
+				},
+			});
+		},
+		{ scope: sectionRef },
+	);
+
 	return (
 		<section
+			ref={sectionRef}
 			style={{
 				display: "grid",
 				gridTemplateRows: "1fr 5rem",
@@ -20,10 +82,14 @@ export function Welcome() {
 						maxWidth: "min(50vw, 28rem)",
 					}}
 				>
-					<h1>Thomas Riffard</h1>
-					<h2 className="secondary">Typescript Dev</h2>
+					<h1>
+						<SplitChars text="Thomas Riffard" />
+					</h1>
+					<h2 className="secondary" data-intro="">
+						Typescript Dev
+					</h2>
 
-					<p>
+					<p data-intro="">
 						Welcome! I'm a full stack developer from Nantes that loves to
 						experiment with the web.
 					</p>
@@ -31,6 +97,7 @@ export function Welcome() {
 			</div>
 
 			<div
+				ref={avatarWrapperRef}
 				style={{
 					gridArea: " 1 / 2 / 2 / 3",
 					display: "grid",
@@ -38,6 +105,7 @@ export function Welcome() {
 				}}
 			>
 				<img
+					ref={avatarRef}
 					src="./avataaars.png"
 					fetchPriority="high"
 					alt="Thomas Riffard"

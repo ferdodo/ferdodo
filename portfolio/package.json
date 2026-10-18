@@ -5,13 +5,15 @@
 		"start": "vite --port 23052 --host"
 	},
 	"devDependencies": {
-		"@types/node": "^22.13.4",
+		"@gsap/react": "^2.1.0",
+		"@types/node": "^26.6.5",
 		"@types/react": "^19.0.8",
 		"@types/react-dom": "^19.0.3",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
-		"typescript": "^5.7.3",
-		"vite": "^6.1.0",
-		"design-system": "file:../design-system"
+		"typescript": "^7.0.2",
+		"vite": "^8.3.4",
+		"design-system": "file:../design-system",
+		"gsap": "^3.12.0"
 	}
 }

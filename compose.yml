@@ -5,10 +5,23 @@ services:
     build: design-system
     ports:
       - "41032:41032"
+    develop:
+      watch:
+        - action: rebuild
+          path: ./design-system/src
+        - action: rebuild
+          path: ./design-system/package.json
 
   portfolio:
-    build: portfolio
+    build:
+      context: portfolio
+      additional_contexts:
+        design-system: service:design-system
     ports:
       - "23052:23052"
-    depends_on:
-      - design-system
+    develop:
+      watch:
+        - action: rebuild
+          path: ./portfolio
+        - action: rebuild
+          path: ./design-system
