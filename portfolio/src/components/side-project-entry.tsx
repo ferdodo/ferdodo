@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import { useLanguage } from "../i18n/language";
+import { translateTag } from "../i18n/translations";
 import type { SideProject } from "../types/side-projet";
 import { gsap, ScrollTrigger } from "../utils/gsap";
 import { EASE, prefersReducedMotion } from "../utils/motion";
@@ -27,6 +29,7 @@ export function SideProjectEntry({
 	sideProject: SideProject;
 	index: number;
 }) {
+	const { lang, t } = useLanguage();
 	const outerRef = useRef<HTMLDivElement>(null);
 	const offsetRef = useRef<HTMLDivElement>(null);
 	const cardRef = useRef<HTMLElement>(null);
@@ -114,18 +117,18 @@ export function SideProjectEntry({
 					/>
 					<fp-typography slot="title">{sideProject.title}</fp-typography>
 					<fp-typography slot="description">
-						{sideProject.description}
+						{sideProject.description[lang]}
 					</fp-typography>
 					{sideProject.tags.map((tag, i) => (
 						<span key={tag} slot={`tag-${i + 1}`}>
-							{tag}
+							{translateTag(tag, lang)}
 						</span>
 					))}
 					<a slot="github" href={sideProject.github}>
-						GitHub
+						{t.github}
 					</a>
 					<a slot="link" href={sideProject.link}>
-						Link
+						{t.link}
 					</a>
 				</fp-side-project>
 			</div>

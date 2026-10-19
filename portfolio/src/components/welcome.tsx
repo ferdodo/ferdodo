@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import { useLanguage } from "../i18n/language";
 import { gsap } from "../utils/gsap";
 import { EASE, prefersReducedMotion } from "../utils/motion";
 import { SplitChars } from "./split-chars";
 
 export function Welcome() {
+	const { t } = useLanguage();
 	const sectionRef = useRef<HTMLElement>(null);
 	const avatarWrapperRef = useRef<HTMLDivElement>(null);
 	const avatarRef = useRef<HTMLImageElement>(null);
@@ -86,13 +88,10 @@ export function Welcome() {
 						<SplitChars text="Thomas Riffard" />
 					</h1>
 					<h2 className="secondary" data-intro="">
-						Typescript Dev
+						{t.typescriptDev}
 					</h2>
 
-					<p data-intro="">
-						Welcome! I'm a full stack developer from Nantes that loves to
-						experiment with the web.
-					</p>
+					<p data-intro="">{t.welcome}</p>
 				</fp-typography>
 			</div>
 

@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import { useLanguage } from "../i18n/language";
 import { gsap } from "../utils/gsap";
 import { EASE, prefersReducedMotion } from "../utils/motion";
 import { SplitChars } from "./split-chars";
 
 export function ContactMe() {
+	const { t } = useLanguage();
 	const sectionRef = useRef<HTMLElement>(null);
 	const imageRef = useRef<HTMLImageElement>(null);
 
@@ -52,12 +54,12 @@ export function ContactMe() {
 		<section ref={sectionRef} style={{ display: "grid", placeContent: "center" }}>
 			<fp-typography style={{ textAlign: "center" }}>
 				<h1>
-					<SplitChars text="Contact Me" />
+					<SplitChars text={t.contactMe} />
 				</h1>
 				<img
 					ref={imageRef}
 					src="./contact.png"
-					alt="Contact Me"
+					alt={t.contactMe}
 					onPointerEnter={() => hoverImage(1.04)}
 					onPointerLeave={() => hoverImage(1)}
 				/>

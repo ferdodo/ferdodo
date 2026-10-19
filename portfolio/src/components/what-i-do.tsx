@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import { useLanguage } from "../i18n/language";
 import { gsap } from "../utils/gsap";
 import { EASE, prefersReducedMotion } from "../utils/motion";
 
 export function WhatIDo() {
+	const { t } = useLanguage();
 	const sectionRef = useRef<HTMLElement>(null);
 
 	useGSAP(
@@ -56,19 +58,18 @@ export function WhatIDo() {
 					}}
 				>
 					<fp-typography>
-						<h1 data-reveal="">What I Do ✅</h1>
+						<h1 data-reveal="">{t.whatIDo}</h1>
 
 						<h2 className="secondary" data-reveal="">
-							Solution architecture
+							{t.solutionArchitecture}
 						</h2>
 
 						<ul>
-							<li data-reveal="">🌱 Prototyping and Proof of Concepts</li>
-							<li data-reveal="">🕹️ Complex and reactive feature design</li>
-							<li data-reveal="">📈 Scaling up full stack applications</li>
-							<li data-reveal="">🔀 Technological migration strategies</li>
-							<li data-reveal="">⛁ Data modelisation</li>
-							<li data-reveal="">🧑🏻‍💻 UI and frontend restructuring </li>
+							{t.whatIDoItems.map((item) => (
+								<li key={item} data-reveal="">
+									{item}
+								</li>
+							))}
 						</ul>
 					</fp-typography>
 				</div>

@@ -6,8 +6,10 @@ export function getSideProjets(): SideProject[] {
 			title: "typedoc-plugin-include-example",
 			tags: ["Library", "Typescript", "Npm"],
 			illustration: "typedoc-plugin-include-example.png",
-			description:
-				"Tool to help developers to include code examples in their documentations.",
+			description: {
+				en: "Tool to help developers to include code examples in their documentations.",
+				fr: "Outil qui aide les développeurs à inclure des exemples de code dans leur documentation.",
+			},
 			github: "https://github.com/ferdodo/typedoc-plugin-include-example",
 			link: "https://www.npmjs.com/package/typedoc-plugin-include-example",
 		},
@@ -15,8 +17,10 @@ export function getSideProjets(): SideProject[] {
 			title: "Autochess",
 			tags: ["Web", "Multiplayer", "Three.js", "Mobile"],
 			illustration: "autochess.jpg",
-			description:
-				"Lightweight 3D auto battler game. Playable online and on mobile.",
+			description: {
+				en: "Lightweight 3D auto battler game. Playable online and on mobile.",
+				fr: "Auto battler 3D léger. Jouable en ligne et sur mobile.",
+			},
 			github: "https://github.com/ferdodo/autochess",
 			link: "https://ferdodo.github.io/autochess/",
 		},
@@ -24,7 +28,10 @@ export function getSideProjets(): SideProject[] {
 			title: "Unlock",
 			tags: ["Web", "Puzzle", "Rust", "WASM", "Procedural"],
 			illustration: "unlock.jpg",
-			description: "Daily web puzzle game.",
+			description: {
+				en: "Daily web puzzle game.",
+				fr: "Jeu de réflexion quotidien sur le web.",
+			},
 			github: "https://github.com/ferdodo/unlock",
 			link: "https://ferdodo.github.io/unlock/",
 		},
@@ -32,7 +39,10 @@ export function getSideProjets(): SideProject[] {
 			title: "Polynames",
 			tags: ["Web", "Game", "Online", "Multiplayer", "Board game"],
 			illustration: "polynames.jpg",
-			description: "Codenames-like game playable online.",
+			description: {
+				en: "Codenames-like game playable online.",
+				fr: "Jeu de type Codenames jouable en ligne.",
+			},
 			github: "https://github.com/ferdodo/polynames",
 			link: "https://ferdodo.github.io/polynames/",
 		},
@@ -40,16 +50,21 @@ export function getSideProjets(): SideProject[] {
 			title: "Blockwise",
 			tags: ["Library", "Typescript", "Npm"],
 			illustration: "blockwise.png",
-			description: "2D utility library.",
+			description: {
+				en: "2D utility library.",
+				fr: "Bibliothèque utilitaire 2D.",
+			},
 			github: "https://github.com/ferdodo/blockwise",
 			link: "https://ferdodo.github.io/blockwise/",
 		},
-
 		{
 			title: "Deciphraze",
 			tags: ["Web", "Puzzle", "Daily", "Procedural"],
 			illustration: "deciphraze.jpg",
-			description: "Everyday decipher a mysterious, encoded, ancient text.",
+			description: {
+				en: "Everyday decipher a mysterious, encoded, ancient text.",
+				fr: "Chaque jour, déchiffrez un mystérieux texte ancien codé.",
+			},
 			github: "https://github.com/ferdodo/deciphraze",
 			link: "https://ferdodo.github.io/deciphraze/",
 		},
@@ -57,8 +72,10 @@ export function getSideProjets(): SideProject[] {
 			title: "Vitest",
 			tags: ["Test runner", "Open source", "Bug fix"],
 			illustration: "vitest.png",
-			description:
-				"Fixed issue #2920, preventing synchronous timeouts to be detected.",
+			description: {
+				en: "Fixed issue #2920, preventing synchronous timeouts to be detected.",
+				fr: "Correction du ticket #2920, qui empêchait la détection des timeouts synchrones.",
+			},
 			github: "https://github.com/vitest-dev/vitest",
 			link: "https://vitest.dev/",
 		},
@@ -66,16 +83,21 @@ export function getSideProjets(): SideProject[] {
 			title: "Diary",
 			tags: ["Web", "React"],
 			illustration: "diary.jpg",
-			description: "Small website for taking daily notes.",
+			description: {
+				en: "Small website for taking daily notes.",
+				fr: "Petit site pour prendre des notes quotidiennes.",
+			},
 			github: "https://github.com/ferdodo/diary",
 			link: "https://ferdodo.github.io/diary/",
 		},
-
 		{
 			title: "daily-prng",
 			tags: ["Library", "Typescript", "RNG"],
 			illustration: "daily-prng.png",
-			description: "Procedural random number generator based on today's date.",
+			description: {
+				en: "Procedural random number generator based on today's date.",
+				fr: "Générateur de nombres aléatoires procédural basé sur la date du jour.",
+			},
 			github: "https://github.com/ferdodo/daily-prng",
 			link: "https://ferdodo.github.io/daily-prng/",
 		},
@@ -83,7 +105,10 @@ export function getSideProjets(): SideProject[] {
 			title: "Unsplit",
 			tags: ["Web", "Puzzle", "Daily"],
 			illustration: "unsplit.png",
-			description: "Daily puzzle.",
+			description: {
+				en: "Daily puzzle.",
+				fr: "Puzzle quotidien.",
+			},
 			github: "https://github.com/ferdodo/unsplit",
 			link: "https://ferdodo.github.io/unsplit/",
 		},
@@ -91,8 +116,10 @@ export function getSideProjets(): SideProject[] {
 			title: "Prince Duals",
 			tags: ["Web", "Multiplayer", "WebRTC"],
 			illustration: "prince-duals.png",
-			description:
-				"Two player game experimenting peer-to-peer networking with WebRTC.",
+			description: {
+				en: "Two player game experimenting peer-to-peer networking with WebRTC.",
+				fr: "Jeu à deux joueurs qui expérimente le réseau pair-à-pair avec WebRTC.",
+			},
 			github: "https://github.com/ferdodo/prince-duals",
 			link: "https://ferdodo.github.io/prince-duals/",
 		},
@@ -100,7 +127,10 @@ export function getSideProjets(): SideProject[] {
 			title: "Cheminot",
 			tags: ["Web", "Game", "Railroad", "Daily"],
 			illustration: "cheminot.png",
-			description: "A game about closing every open railroad.",
+			description: {
+				en: "A game about closing every open railroad.",
+				fr: "Un jeu où il faut fermer toutes les voies ferrées ouvertes.",
+			},
 			github: "https://github.com/ferdodo/cheminot",
 			link: "https://ferdodo.github.io/cheminot/",
 		},
@@ -108,7 +138,10 @@ export function getSideProjets(): SideProject[] {
 			title: "Tetromino",
 			tags: ["Web", "Game", "Procedural"],
 			illustration: "tetromino.png",
-			description: "Daily challenge to fit all tetromino on the board.",
+			description: {
+				en: "Daily challenge to fit all tetromino on the board.",
+				fr: "Défi quotidien : placer tous les tétrominos sur le plateau.",
+			},
 			github: "https://github.com/ferdodo/tetromino",
 			link: "https://ferdodo.github.io/tetromino/",
 		},
@@ -116,8 +149,10 @@ export function getSideProjets(): SideProject[] {
 			title: "procedural-tamago-sprite",
 			tags: ["Rust", "Pixel Art", "Procedural"],
 			illustration: "tamago.png",
-			description:
-				"Generate some tamagochi-like sprites with procedural pixel art generation in Rust.",
+			description: {
+				en: "Generate some tamagochi-like sprites with procedural pixel art generation in Rust.",
+				fr: "Génère des sprites façon tamagotchi par génération procédurale de pixel art, en Rust.",
+			},
 			github: "https://github.com/ferdodo/procedural-tamago-sprite",
 			link: "https://ferdodo.github.io/procedural-tamago-sprite/",
 		},
@@ -125,7 +160,10 @@ export function getSideProjets(): SideProject[] {
 			title: "Shufflet",
 			tags: ["Anagrams", "Daily"],
 			illustration: "shufflet.png",
-			description: "Find all anagrams for the word of the day.",
+			description: {
+				en: "Find all anagrams for the word of the day.",
+				fr: "Trouvez tous les anagrammes du mot du jour.",
+			},
 			github: "https://github.com/ferdodo/shufflet",
 			link: "https://ferdodo.github.io/shufflet/",
 		},
@@ -133,7 +171,10 @@ export function getSideProjets(): SideProject[] {
 			title: "Reliade",
 			tags: ["2D", "Puzzle", "Daily"],
 			illustration: "reliade.png",
-			description: "Link all nodes while filling the most space you can.",
+			description: {
+				en: "Link all nodes while filling the most space you can.",
+				fr: "Reliez tous les nœuds en remplissant le plus d'espace possible.",
+			},
 			github: "https://github.com/ferdodo/reliade",
 			link: "https://ferdodo.github.io/reliade/",
 		},
@@ -141,8 +182,10 @@ export function getSideProjets(): SideProject[] {
 			title: "csgo-dof-screenshot",
 			tags: ["Software", "Electron", "Csgo", "Depth of field"],
 			illustration: "csgo-dof.jpg",
-			description:
-				"Optical hack to create screenshots with deep of field effect.",
+			description: {
+				en: "Optical hack to create screenshots with deep of field effect.",
+				fr: "Astuce optique pour créer des captures d'écran avec un effet de profondeur de champ.",
+			},
 			github: "https://github.com/ferdodo/csgo-dof-screenshot",
 			link: "https://github.com/ferdodo/csgo-dof-screenshot",
 		},

@@ -2,6 +2,7 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+	overflow-x: hidden;
 }
 
 section {
@@ -22,5 +23,125 @@ section {
 
 	body {
 		padding-bottom: 50svh;
+	}
+}
+
+@media (max-height: 700px) {
+	.what-i-do-beaker {
+		display: none;
+	}
+}
+
+.work-story {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	align-items: center;
+	gap: 4rem;
+	width: 70vw;
+}
+
+.work-story--text-only {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.work-story-photos {
+	position: relative;
+	width: 100%;
+	max-width: 36rem;
+	aspect-ratio: 4 / 3;
+}
+
+.work-story-photo {
+	position: absolute;
+	left: var(--x);
+	top: var(--y);
+	width: var(--w);
+}
+
+.work-story-photo:hover {
+	z-index: 10;
+}
+
+.work-story-photo-frame {
+	position: relative;
+	margin: 0;
+	padding: 0.5rem 0.5rem 1.8rem;
+	background-color: #fff;
+	border-radius: 0.25rem;
+	box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.3);
+	transform: rotate(var(--r));
+	transition: transform 0.4s ease;
+}
+
+.work-story-photo-frame img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+}
+
+.work-story-photo-frame figcaption {
+	position: absolute;
+	left: 0.6rem;
+	bottom: 0.5rem;
+	font-size: 0.7rem;
+	color: #222;
+}
+
+@media (hover: hover) {
+	.work-story-photo:hover .work-story-photo-frame {
+		transform: rotate(0deg) scale(1.06);
+	}
+}
+
+.work-story-text {
+	min-width: 0;
+}
+
+.work-story-meta {
+	opacity: 0.7;
+}
+
+.work-story-tags span {
+	display: inline-block;
+	margin: 0.2rem;
+	padding: 0.2rem 0.5rem;
+	border-radius: 0.5rem;
+	background-color: var(--ferdodo-portfolio-color-lighter-primary);
+	color: var(--ferdodo-portfolio-color-text-primary);
+}
+
+@media (min-width: 769px) {
+	.work-story--flip .work-story-photos {
+		order: 2;
+	}
+}
+
+@media (max-width: 768px) {
+	.work-story {
+		grid-template-columns: minmax(0, 1fr);
+		width: 90vw;
+	}
+
+	.work-story-photos {
+		aspect-ratio: auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
+		max-width: none;
+	}
+
+	.work-story-photo {
+		position: relative;
+		left: auto;
+		top: auto;
+		width: calc(var(--w) * 0.7);
+	}
+}
+
+@media (max-height: 750px) {
+	.work-story-photos {
+		max-width: 26rem;
 	}
 }

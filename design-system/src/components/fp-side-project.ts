@@ -79,6 +79,21 @@ const template = html`
 			}
 		}
 
+		@media (max-height: 750px) {
+			.tags,
+			.links {
+				display: none;
+			}
+
+			.pre-illustration {
+				min-height: auto;
+			}
+
+			.container {
+				height: auto;
+			}
+		}
+
 	</style>
 
 	<div class="container">
@@ -107,7 +122,7 @@ const template = html`
 				</p>
 			</fp-typography>
 		</div>
-		<div>
+		<div class="links">
 			<fp-typography>
 				<p style="text-align: right;">
 					<slot name="github"></slot>
