@@ -15,7 +15,7 @@ export function LanguageSwitcher() {
 			role="group"
 			aria-label={t.languageLabel}
 			style={{
-				position: "fixed",
+				position: "absolute",
 				top: "1rem",
 				right: "1rem",
 				zIndex: 10,

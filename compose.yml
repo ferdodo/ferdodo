@@ -12,11 +12,19 @@ services:
         - action: rebuild
           path: ./design-system/package.json
 
+  portfolio-deps:
+    build:
+      context: portfolio
+      target: deps
+      additional_contexts:
+        design-system: service:design-system
+
   portfolio:
     build:
       context: portfolio
       additional_contexts:
         design-system: service:design-system
+        deps: service:portfolio-deps
     ports:
       - "23052:23052"
     develop:

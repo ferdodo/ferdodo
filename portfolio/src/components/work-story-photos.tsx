@@ -81,7 +81,7 @@ export function WorkStoryPhotos({ photos, flip }: { photos: WorkStoryPhoto[]; fl
 		<div ref={containerRef} className="work-story-photos">
 			{photos.map((photo, index) => {
 				const placement = placementFor(index, photos.length, flip);
-				const credit = photo.credit?.[lang];
+				const caption = photo.caption?.[lang];
 				return (
 					<div
 						key={photo.src}
@@ -98,7 +98,7 @@ export function WorkStoryPhotos({ photos, flip }: { photos: WorkStoryPhoto[]; fl
 					>
 						<figure className="work-story-photo-frame">
 							<img src={photo.src} alt={photo.alt[lang]} />
-							{credit && <figcaption>{credit}</figcaption>}
+							{caption && <figcaption>{caption}</figcaption>}
 						</figure>
 					</div>
 				);

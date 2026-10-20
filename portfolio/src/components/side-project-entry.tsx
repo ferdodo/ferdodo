@@ -3,35 +3,20 @@ import { useGSAP } from "@gsap/react";
 import { useLanguage } from "../i18n/language";
 import { translateTag } from "../i18n/translations";
 import type { SideProject } from "../types/side-projet";
-import { gsap, ScrollTrigger } from "../utils/gsap";
+import { gsap } from "../utils/gsap";
 import { EASE, prefersReducedMotion } from "../utils/motion";
-
-const AMPLITUDE = 100; // en svh, décalage maximal quand la ligne est hors centre
-const REST_ZONE = 0.15; // largeur maximale de la zone de repos, pour la dernière colonne (0 à 0.5)
-
-// progress : position de la ligne dans l'écran (0.5 = centrée)
-// deadDown / deadUp : largeur de la zone de repos d'un côté ou de l'autre du centre, propre à la colonne
-function offsetFor(progress: number, deadDown: number, deadUp: number) {
-	const x = 0.5 - progress;
-	const dead = x > 0 ? deadDown : deadUp;
-	const magnitude = Math.min(
-		1,
-		Math.max(0, (Math.abs(x) - dead) / (0.5 - dead)),
-	);
-
-	return Math.sign(x) * magnitude * AMPLITUDE * window.innerHeight / 100;
-}
 
 export function SideProjectEntry({
 	sideProject,
-	index,
+	active,
+	onActivate,
 }: {
 	sideProject: SideProject;
-	index: number;
+	active: boolean;
+	onActivate: () => void;
 }) {
 	const { lang, t } = useLanguage();
 	const outerRef = useRef<HTMLDivElement>(null);
-	const offsetRef = useRef<HTMLDivElement>(null);
 	const cardRef = useRef<HTMLElement>(null);
 
 	useGSAP(
@@ -71,67 +56,49 @@ export function SideProjectEntry({
 		{ scope: cardRef },
 	);
 
-	useGSAP(
-		() => {
-			const outer = outerRef.current;
-			const offset = offsetRef.current;
-			if (!outer || !offset || prefersReducedMotion()) {
-				return;
-			}
+	// Le premier clic agrandit et focalise la carte sans ouvrir son lien ; le second clic ouvre le lien.
+	const handleClickCapture = (event: React.MouseEvent) => {
+		if (active) {
+			return;
+		}
 
-			const setY = gsap.quickSetter(offset, "y", "px");
-			let deadDown = 0;
-			let deadUp = 0;
-
-			ScrollTrigger.create({
-				trigger: outer,
-				start: "top bottom",
-				end: "bottom top",
-				onRefresh: (self) => {
-					const columns = getComputedStyle(outer.parentElement!)
-						.gridTemplateColumns.split(" ").length;
-					const column = index % columns;
-					const ratio = columns > 1 ? column / (columns - 1) : 0;
-
-					deadDown = columns > 1 ? REST_ZONE * (1 - ratio) : 0;
-					deadUp = columns > 1 ? REST_ZONE * ratio : 0;
-
-					setY(offsetFor(self.progress, deadDown, deadUp));
-				},
-				onUpdate: (self) => {
-					setY(offsetFor(self.progress, deadDown, deadUp));
-				},
-			});
-		},
-		{ scope: outerRef },
-	);
+		event.preventDefault();
+		event.stopPropagation();
+		onActivate();
+		outerRef.current?.focus({ preventScroll: true });
+	};
 
 	return (
-		<div ref={outerRef}>
-			<div ref={offsetRef}>
-				<fp-side-project ref={cardRef} style={{ zIndex: "1" }}>
-					<img
-						slot="illustration"
-						src={sideProject.illustration}
-						alt={sideProject.title}
-					/>
-					<fp-typography slot="title">{sideProject.title}</fp-typography>
-					<fp-typography slot="description">
-						{sideProject.description[lang]}
-					</fp-typography>
-					{sideProject.tags.map((tag, i) => (
-						<span key={tag} slot={`tag-${i + 1}`}>
-							{translateTag(tag, lang)}
-						</span>
-					))}
-					<a slot="github" href={sideProject.github}>
-						{t.github}
-					</a>
-					<a slot="link" href={sideProject.link}>
-						{t.link}
-					</a>
-				</fp-side-project>
-			</div>
+		<div
+			ref={outerRef}
+			className="side-project-slot"
+			data-side-project=""
+			data-active={active ? "" : undefined}
+			tabIndex={-1}
+			onClickCapture={handleClickCapture}
+		>
+			<fp-side-project ref={cardRef} style={{ zIndex: "1" }}>
+				<img
+					slot="illustration"
+					src={sideProject.illustration}
+					alt={sideProject.title}
+				/>
+				<fp-typography slot="title">{sideProject.title}</fp-typography>
+				<fp-typography slot="description">
+					{sideProject.description[lang]}
+				</fp-typography>
+				{sideProject.tags.map((tag, i) => (
+					<span key={tag} slot={`tag-${i + 1}`}>
+						{translateTag(tag, lang)}
+					</span>
+				))}
+				<a slot="github" href={sideProject.github}>
+					{t.github}
+				</a>
+				<a slot="link" href={sideProject.link}>
+					{t.link}
+				</a>
+			</fp-side-project>
 		</div>
 	);
 }

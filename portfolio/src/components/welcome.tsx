@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import { useLanguage } from "../i18n/language";
 import { gsap } from "../utils/gsap";
 import { EASE, prefersReducedMotion } from "../utils/motion";
+import { LanguageSwitcher } from "./language-switcher";
 import { SplitChars } from "./split-chars";
 
 export function Welcome() {
@@ -70,8 +71,11 @@ export function Welcome() {
 			style={{
 				display: "grid",
 				gridTemplateRows: "1fr 5rem",
+				position: "relative",
 			}}
 		>
+			<LanguageSwitcher />
+
 			<div
 				style={{
 					gridArea: "1 / 1 / 2 / 2",

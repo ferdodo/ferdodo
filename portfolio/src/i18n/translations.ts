@@ -52,7 +52,7 @@ export const translations: Record<Language, Translations> = {
 			"🧑🏻‍💻 Restructuration d'interfaces et de frontends",
 		],
 		thingsIDid: "Ce que j'ai fait 👨‍🔬",
-		workStories: "Histoires d'entreprise 💼",
+		workStories: "Vécu professionnel 💼",
 		contactMe: "Me contacter",
 		github: "GitHub",
 		link: "Lien",

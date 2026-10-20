@@ -25,7 +25,7 @@ export function getWorkStories(): WorkStory[] {
 				{
 					src: "work-stories/dice/dice-bridge.webp",
 					alt: { en: "Ship bridge with weather screens", fr: "Passerelle de navire avec écrans météo" },
-					credit: { en: "D-ICE Engineering", fr: "D-ICE Engineering" },
+					caption: { en: "Squid on board a ship", fr: "Squid à bord d'un navire" },
 				},
 				{
 					src: "work-stories/dice/dice-monitors.png",
@@ -33,21 +33,22 @@ export function getWorkStories(): WorkStory[] {
 						en: "Team in front of weather forecast screens",
 						fr: "Équipe devant des écrans de prévisions météo",
 					},
-					credit: { en: "D-ICE Engineering", fr: "D-ICE Engineering" },
+					caption: { en: "Test bench", fr: "Banc de test" },
 				},
 				{
 					src: "work-stories/dice/dice-equipe-2025.jpg",
 					alt: { en: "Group photo of the D-ICE team", fr: "Photo de groupe de l'équipe D-ICE" },
-					credit: { en: "D-Ice, Le Journal des Entreprises", fr: "D-Ice, Le Journal des Entreprises" },
+					caption: { en: "The D-ICE team in 2025", fr: "L'équipe D-ICE en 2025" },
 				},
 				{
 					src: "work-stories/dice/port-intelligence.webp",
 					alt: { en: "Squid: port information", fr: "Squid : informations sur les ports" },
-					credit: { en: "squid-sailing.com", fr: "squid-sailing.com" },
+					caption: { en: "Port information in Squid", fr: "Les infos d'un port dans Squid" },
 				},
 				{
 					src: "work-stories/dice/squid-desktop-routing.png",
 					alt: { en: "Squid: route planning on a map", fr: "Squid : routage sur carte" },
+					caption: { en: "Routing in Squid", fr: "Le routage dans Squid" },
 				},
 			],
 		},
@@ -73,6 +74,7 @@ export function getWorkStories(): WorkStory[] {
 				{
 					src: "work-stories/huggle/1700592614937.jpg",
 					alt: { en: "Terracotta pot with the Huggle logo", fr: "Pot en terre cuite au logo Huggle" },
+					caption: { en: "A seedling at Huggle", fr: "Une pousse chez Huggle" },
 				},
 				{
 					src: "work-stories/huggle/Capture d’écran du 2026-10-19 12-39-34.png",
@@ -80,14 +82,17 @@ export function getWorkStories(): WorkStory[] {
 						en: "Meeting around a table with a laptop",
 						fr: "Réunion autour d'une table avec un ordinateur portable",
 					},
+					caption: { en: "A team discussion", fr: "Une discussion d'équipe" },
 				},
 				{
 					src: "work-stories/huggle/Capture d’écran du 2026-10-19 12-39-48.png",
 					alt: { en: "Handshake during a meeting", fr: "Poignée de main pendant une réunion" },
+					caption: { en: "Deal done", fr: "Accord conclu" },
 				},
 				{
 					src: "work-stories/huggle/IMG-20240517-WA0000.jpg",
 					alt: { en: "Group photo around a table", fr: "Photo de groupe autour d'une table" },
+					caption: { en: "After-work with colleagues", fr: "Afterwork entre collègues" },
 				},
 			],
 		},
@@ -113,12 +118,12 @@ export function getWorkStories(): WorkStory[] {
 				{
 					src: "work-stories/beekast/beekast-editor.png",
 					alt: { en: "Beekast session editor", fr: "Éditeur de session Beekast" },
-					credit: { en: "Beekast", fr: "Beekast" },
+					caption: { en: "The Beekast app", fr: "L'application Beekast" },
 				},
 				{
 					src: "work-stories/beekast/beekast-team-2023.png",
 					alt: { en: "Beekast team photo", fr: "Photo d'équipe Beekast" },
-					credit: { en: "Maddyness", fr: "Maddyness" },
+					caption: { en: "The Beekast team in 2023", fr: "L'équipe Beekast en 2023" },
 				},
 			],
 		},
@@ -144,12 +149,12 @@ export function getWorkStories(): WorkStory[] {
 				{
 					src: "work-stories/armaplus/armaplus-locaux.jpg",
 					alt: { en: "Arma Plus building in Saint-Herblain", fr: "Bâtiment d'Arma Plus à Saint-Herblain" },
-					credit: { en: "Pages Jaunes", fr: "Pages Jaunes" },
+					caption: { en: "The Arma Plus offices", fr: "Les locaux d'Arma Plus" },
 				},
 				{
 					src: "work-stories/armaplus/bugal-configurator.png",
 					alt: { en: "3D railing configurator", fr: "Configurateur 3D de garde-corps" },
-					credit: { en: "Screenshot: Bugal configurator", fr: "Capture : configurateur Bugal" },
+					caption: { en: "A railing in 3D", fr: "Un garde-corps en 3D" },
 				},
 			],
 		},
@@ -175,17 +180,14 @@ export function getWorkStories(): WorkStory[] {
 				{
 					src: "work-stories/barillec/omexom-quimper-2022.jpg",
 					alt: { en: "Omexom project in Quimper", fr: "Projet Omexom à Quimper" },
-					credit: { en: "Omexom", fr: "Omexom" },
 				},
 				{
 					src: "work-stories/barillec/omexom-dunkerque-2024.jpg",
 					alt: { en: "Storage site in Dunkerque", fr: "Chantier de stockage à Dunkerque" },
-					credit: { en: "Omexom", fr: "Omexom" },
 				},
 				{
 					src: "work-stories/barillec/omexom-stockage-2024.png",
 					alt: { en: "61 MWh storage system", fr: "Système de stockage de 61 MWh" },
-					credit: { en: "Omexom", fr: "Omexom" },
 				},
 			],
 		},

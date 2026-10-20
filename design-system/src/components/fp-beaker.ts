@@ -6,6 +6,8 @@ const tagName = "fp-beaker";
 const template = html`
 	<style>
 		:host {
+			--fade-start: 800px;
+			--fade-end: 1165px;
 			display: block;
 		}
 
@@ -16,8 +18,11 @@ const template = html`
 			grid-column-gap: 0px;
 			grid-row-gap: 0px;
 			align-items: end;
+			width: max-content;
 			z-index:-1;
 			animation: fade-in 1s ease-out both;
+			-webkit-mask-image: linear-gradient(to bottom, transparent var(--fade-start), #000 var(--fade-end));
+			mask-image: linear-gradient(to bottom, transparent var(--fade-start), #000 var(--fade-end));
 		}
 
 		@keyframes fade-in {

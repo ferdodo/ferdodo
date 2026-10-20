@@ -3,7 +3,6 @@ import { createRoot } from "react-dom/client";
 import { flushSync } from "react-dom";
 import { loadDesignSystem } from "design-system/src/utils/load-design-system";
 import { LanguageProvider } from "./i18n/language";
-import { LanguageSwitcher } from "./components/language-switcher";
 import { Welcome } from "./components/welcome";
 import { WhatIDo } from "./components/what-i-do";
 import { ThingsIDid } from "./components/things-i-did";
@@ -43,7 +42,6 @@ loadDesignSystem()
 		flushSync(() => {
 			root.render(
 				<LanguageProvider>
-					<LanguageSwitcher />
 					<Welcome />
 					<WhatIDo />
 					<ThingsIDid />

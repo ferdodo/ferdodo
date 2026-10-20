@@ -3,7 +3,7 @@ import type { Localized } from "./localized";
 export interface WorkStoryPhoto {
 	src: string;
 	alt: Localized<string>;
-	credit?: Localized<string>;
+	caption?: Localized<string>;
 }
 
 export interface WorkStory {

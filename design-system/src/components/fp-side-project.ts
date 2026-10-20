@@ -8,6 +8,7 @@ const template = html`
 			width: 20rem;
 			height: 32rem;
 			background-color: var(--ferdodo-portfolio-color-lighter);
+								box-shadow: 0 0 3.5rem rgba(0, 0, 0, 0.15);
 			border-radius: 0.5rem;
 			padding: 1rem;
 		}

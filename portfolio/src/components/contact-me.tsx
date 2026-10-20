@@ -8,6 +8,7 @@ import { SplitChars } from "./split-chars";
 export function ContactMe() {
 	const { t } = useLanguage();
 	const sectionRef = useRef<HTMLElement>(null);
+	const photoRef = useRef<HTMLImageElement>(null);
 	const imageRef = useRef<HTMLImageElement>(null);
 
 	useGSAP(
@@ -31,7 +32,7 @@ export function ContactMe() {
 				scrollTrigger,
 			});
 
-			gsap.from(imageRef.current, {
+			gsap.from([photoRef.current, imageRef.current], {
 				scale: 0.85,
 				y: 40,
 				opacity: 0,
@@ -44,26 +45,36 @@ export function ContactMe() {
 		{ scope: sectionRef },
 	);
 
-	const hoverImage = (scale: number) => {
+	const hoverImage = (image: HTMLImageElement | null, scale: number) => {
 		if (!prefersReducedMotion()) {
-			gsap.to(imageRef.current, { scale, duration: 0.4, ease: EASE.out });
+			gsap.to(image, { scale, duration: 0.4, ease: EASE.out });
 		}
 	};
 
 	return (
 		<section ref={sectionRef} style={{ display: "grid", placeContent: "center" }}>
-			<fp-typography style={{ textAlign: "center" }}>
-				<h1>
-					<SplitChars text={t.contactMe} />
-				</h1>
+			<div className="contact-row">
+				<fp-typography style={{ textAlign: "center" }}>
+					<h1>
+						<SplitChars text={t.contactMe} />
+					</h1>
+					<img
+						ref={imageRef}
+						src="./contact.png"
+						alt={t.contactMe}
+						onPointerEnter={() => hoverImage(imageRef.current, 1.04)}
+						onPointerLeave={() => hoverImage(imageRef.current, 1)}
+					/>
+				</fp-typography>
 				<img
-					ref={imageRef}
-					src="./contact.png"
-					alt={t.contactMe}
-					onPointerEnter={() => hoverImage(1.04)}
-					onPointerLeave={() => hoverImage(1)}
+					ref={photoRef}
+					className="contact-photo"
+					src="./photo.jpg"
+					alt="Thomas Riffard"
+					onPointerEnter={() => hoverImage(photoRef.current, 1.04)}
+					onPointerLeave={() => hoverImage(photoRef.current, 1)}
 				/>
-			</fp-typography>
+			</div>
 		</section>
 	);
 }
