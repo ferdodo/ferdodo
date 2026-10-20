@@ -16,20 +16,20 @@ const template = html`
 		}
 
 		::slotted(h1) {
-			font-size: clamp(2em, 6vw, 3em);
+			font-size: clamp(2em, 2.6vw, 2.6vw);
 		}
 
 		::slotted(h2) {
-			font-size: clamp(1.2em, 3.6vw, 1.8em);
+			font-size: clamp(1.2em, 2.1vw, 2.1vw);
 		}
 
 		::slotted(p) {
-			font-size: clamp(0.66em, 2vw, 1em);
+			font-size: clamp(0.66em, 1.2vw, 1.2vw);
 		}
 
 		::slotted(ul) {
 			line-height: 2;
-			font-size: clamp(0.66em, 2vw, 1em);
+			font-size: clamp(0.66em, 1.2vw, 1.2vw);
 		}
 
 		::slotted(li) {

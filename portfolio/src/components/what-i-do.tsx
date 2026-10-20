@@ -41,7 +41,7 @@ export function WhatIDo() {
 	);
 
 	return (
-		<section ref={sectionRef} style={{ display: "grid", placeContent: "center" }}>
+		<section id="what-i-do" ref={sectionRef} style={{ display: "grid", placeContent: "center" }}>
 			<div
 				style={{
 					display: "grid",

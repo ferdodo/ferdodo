@@ -8,7 +8,6 @@ import { WhatIDo } from "./components/what-i-do";
 import { ThingsIDid } from "./components/things-i-did";
 import { WorkStories } from "./components/work-stories";
 import { ContactMe } from "./components/contact-me";
-import { setupSectionSnap } from "./utils/setup-section-snap";
 import { ScrollTrigger } from "./utils/gsap";
 
 declare module "react" {
@@ -23,7 +22,7 @@ declare module "react" {
 		interface IntrinsicElements {
 			["fp-typography"]: FpComponent;
 			["fp-background"]: FpComponent;
-			["fp-scroll-indicator"]: FpComponent;
+			["fp-scroll-indicator"]: FpComponent & { href?: string; label?: string };
 			["fp-beaker"]: FpComponent;
 			["fp-side-project"]: FpComponent;
 		}
@@ -51,7 +50,6 @@ loadDesignSystem()
 			);
 		});
 
-		setupSectionSnap();
 		ScrollTrigger.refresh();
 	})
 	.catch(console.error);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useLanguage } from "../i18n/language";
 import { getWorkStories } from "../utils/get-work-stories";
 import { usePinnedTitle } from "../utils/use-pinned-title";
@@ -7,10 +7,13 @@ import { WorkStoryEntry } from "./work-story-entry";
 export function WorkStories() {
 	const { t } = useLanguage();
 	const workStories = getWorkStories();
-	const { sectionRef, titleRef } = usePinnedTitle();
+	const firstStoryRef = useRef<HTMLElement>(null);
+	const lastStoryRef = useRef<HTMLElement>(null);
+	const titleRef = usePinnedTitle(firstStoryRef, lastStoryRef);
+	const lastIndex = workStories.length - 1;
 
 	return (
-		<section ref={sectionRef} className="work-stories">
+		<>
 			<div
 				ref={titleRef}
 				style={{
@@ -27,22 +30,15 @@ export function WorkStories() {
 				</fp-typography>
 			</div>
 
-			<div
-				data-snap-rows=""
-				style={{
-					display: "grid",
-					gridTemplateColumns: "minmax(0, 1fr)",
-					gridAutoRows: "100svh",
-					alignItems: "center",
-					width: "80vw",
-					justifyItems: "center",
-					zIndex: 1,
-				}}
-			>
-				{workStories.map((story, index) => (
-					<WorkStoryEntry key={story.company} story={story} index={index} />
-				))}
-			</div>
-		</section>
+			{workStories.map((story, index) => (
+				<section
+					key={story.company}
+					ref={index === 0 ? firstStoryRef : index === lastIndex ? lastStoryRef : undefined}
+					className="work-story-section"
+				>
+					<WorkStoryEntry story={story} index={index} />
+				</section>
+			))}
+		</>
 	);
 }

@@ -10,7 +10,8 @@ const MAX_ROWS = 3;
 export function ThingsIDid() {
 	const { t } = useLanguage();
 	const sideProjects = getSideProjets();
-	const { sectionRef, titleRef } = usePinnedTitle();
+	const sectionRef = useRef<HTMLElement>(null);
+	const titleRef = usePinnedTitle(sectionRef, sectionRef);
 	const probeRef = useRef<HTMLDivElement>(null);
 	const fits = useFitsInWindow(probeRef, sideProjects.length, MAX_ROWS);
 	const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -64,7 +65,7 @@ export function ThingsIDid() {
 					</fp-typography>
 				</div>
 
-				<div data-snap-rows="" className="side-projects">
+				<div className="side-projects">
 					<div className="side-projects-grid">
 						{sideProjects.map((sideProject, index) => (
 							<SideProjectEntry

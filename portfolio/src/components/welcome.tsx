@@ -14,15 +14,24 @@ export function Welcome() {
 
 	useGSAP(
 		() => {
+			const scrollIndicator = sectionRef.current?.querySelector("fp-scroll-indicator");
 			const hideScrollIndicator = () => {
 				window.removeEventListener("wheel", hideScrollIndicator);
 				window.removeEventListener("touchstart", hideScrollIndicator);
+				scrollIndicator?.removeEventListener("click", hideScrollIndicator);
 				gsap.killTweensOf("fp-scroll-indicator");
-				gsap.to("fp-scroll-indicator", { opacity: 0, duration: 0.5 });
+				gsap.to("fp-scroll-indicator", {
+					opacity: 0,
+					duration: 0.5,
+					onComplete: () => {
+						gsap.set("fp-scroll-indicator", { visibility: "hidden" });
+					},
+				});
 			};
 
 			window.addEventListener("wheel", hideScrollIndicator, { passive: true });
 			window.addEventListener("touchstart", hideScrollIndicator, { passive: true });
+			scrollIndicator?.addEventListener("click", hideScrollIndicator);
 
 			if (prefersReducedMotion()) {
 				return;
@@ -85,11 +94,13 @@ export function Welcome() {
 			>
 				<fp-typography
 					style={{
-						maxWidth: "min(50vw, 28rem)",
+						maxWidth: "38vw"
 					}}
 				>
 					<h1>
-						<SplitChars text="Thomas Riffard" />
+						<SplitChars text="Thomas" />
+						<span> </span>
+						<SplitChars text="Riffard" />
 					</h1>
 					<h2 className="secondary" data-intro="">
 						{t.typescriptDev}
@@ -122,6 +133,8 @@ export function Welcome() {
 			</div>
 
 			<fp-scroll-indicator
+				href="#what-i-do"
+				label={t.scrollDown}
 				style={{
 					gridArea: " 2 / 1 / 3 / 3",
 					zIndex: 1,

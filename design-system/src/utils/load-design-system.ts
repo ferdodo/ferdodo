@@ -7,6 +7,7 @@ import { defineSideProjet } from "../components/fp-side-project";
 
 export async function loadDesignSystem() {
 	await loadFont("QuicksandBook", "./Quicksand_Book.otf");
+	await loadFont("ShantellSans", "./ShantellSans.ttf");
 	defineBackground();
 	defineTypography();
 	defineScrollIndicator();

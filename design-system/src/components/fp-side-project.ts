@@ -5,12 +5,12 @@ const tagName = "fp-side-project";
 const template = html`
 	<style>
 		.container {
-			width: 20rem;
-			height: 32rem;
+			width: var(--card-width, 22vw);
+			aspect-ratio: 5 / 8;
 			background-color: var(--ferdodo-portfolio-color-lighter);
 								box-shadow: 0 0 3.5rem rgba(0, 0, 0, 0.15);
 			border-radius: 0.5rem;
-			padding: 1rem;
+			padding: 1.1vw;
 		}
 
 		::slotted(a) {
@@ -25,16 +25,16 @@ const template = html`
 		}
 
 		.pre-illustration {
-			min-height: 9.5rem;
+			min-height: 10.5vw;
 		}
 
 		.description-block {
-			min-height: 3.6rem;
+			min-height: 4vw;
 		}
 
 		::slotted(img) {
 			width: 100%;
-			max-height: 12rem;
+			max-height: 13.3vw;
 			object-fit: cover;
 			object-position: top left;
 		}
