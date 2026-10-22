@@ -22,7 +22,7 @@ export function getSideProjets(): SideProject[] {
 				fr: "Auto battler 3D léger. Jouable en ligne et sur mobile.",
 			},
 			github: "https://github.com/ferdodo/autochess",
-			link: "https://ferdodo.github.io/autochess/",
+			link: "https://ferdodo.codeberg.page/autochess/",
 		},
 		{
 			title: "Unlock",
