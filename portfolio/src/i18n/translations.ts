@@ -14,6 +14,7 @@ export interface Translations {
 	link: string;
 	languageLabel: string;
 	scrollDown: string;
+	backToTop: string;
 }
 
 export const translations: Record<Language, Translations> = {
@@ -37,7 +38,8 @@ export const translations: Record<Language, Translations> = {
 		github: "GitHub",
 		link: "Link",
 		languageLabel: "Language",
-			scrollDown: "Scroll to the next section",
+		scrollDown: "Scroll to the next section",
+		backToTop: "Back to top",
 	},
 	fr: {
 		documentTitle: "Thomas Riffard - Développeur fullstack",
@@ -59,7 +61,8 @@ export const translations: Record<Language, Translations> = {
 		github: "GitHub",
 		link: "Lien",
 		languageLabel: "Langue",
-			scrollDown: "Aller à la section suivante",
+		scrollDown: "Aller à la section suivante",
+		backToTop: "Retour vers le haut",
 	},
 };
 

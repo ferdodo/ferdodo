@@ -4,6 +4,7 @@ import { flushSync } from "react-dom";
 import { loadDesignSystem } from "design-system/src/utils/load-design-system";
 import { LanguageProvider } from "./i18n/language";
 import { Welcome } from "./components/welcome";
+import { BackToTop } from "./components/back-to-top";
 import { WhatIDo } from "./components/what-i-do";
 import { ThingsIDid } from "./components/things-i-did";
 import { WorkStories } from "./components/work-stories";
@@ -41,6 +42,7 @@ loadDesignSystem()
 		flushSync(() => {
 			root.render(
 				<LanguageProvider>
+					<BackToTop />
 					<Welcome />
 					<WhatIDo />
 					<ThingsIDid />

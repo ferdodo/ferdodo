@@ -77,6 +77,7 @@ export function Welcome() {
 	return (
 		<section
 			ref={sectionRef}
+			id="welcome"
 			style={{
 				display: "grid",
 				gridTemplateRows: "1fr 5rem",
