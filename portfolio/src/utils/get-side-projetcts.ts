@@ -3,6 +3,83 @@ import type { SideProject } from "../types/side-projet";
 export function getSideProjets(): SideProject[] {
 	return [
 		{
+			title: "loto",
+			tags: ["Web", "Interactive", "Event"],
+			illustration: "loto.png",
+			description: {
+				en: "Interactive lottery drawing tool for events.",
+				fr: "Outil de tirage au sort interactif pour les événements.",
+			},
+			github: "https://github.com/ferdodo/loto",
+			link: "https://github.com/ferdodo/loto",
+		},
+		{
+			title: "grid-explainer",
+			tags: ["Web", "CSS", "Educational", "Tool"],
+			illustration: "grid-explainer.png",
+			description: {
+				en: "Visual utility to explain and explore CSS Grid layouts interactively.",
+				fr: "Utilitaire visuel pour expliquer et explorer les mises en page CSS Grid de manière interactive.",
+			},
+			github: "https://github.com/ferdodo/grid-explainer",
+			link: "https://github.com/ferdodo/grid-explainer",
+		},
+		{
+			title: "command-as-mcp",
+			tags: ["MCP", "Rust", "CLI", "AI"],
+			illustration: "command-as-mcp.png",
+			description: {
+				en: "MCP stdio server written in Rust that wraps explicit command-line interfaces for AI models.",
+				fr: "Serveur MCP stdio écrit en Rust qui wrapper les interfaces en ligne de commande explicites pour les modèles d'IA.",
+			},
+			github: "https://github.com/ferdodo/command-as-mcp",
+			link: "https://github.com/ferdodo/command-as-mcp",
+		},
+		{
+			title: "code-dactylo",
+			tags: ["CLI", "Game", "Interactive", "Animation"],
+			illustration: "code-dactylo.png",
+			description: {
+				en: "Interactive animated command-line typing game where you rewrite code snippets optimally in different programming languages.",
+				fr: "Jeu de dactylographie interactif et animé en ligne de commande où vous réécrivez du code au mieux dans différents langages de programmation.",
+			},
+			github: "https://github.com/ferdodo/code-dactylo",
+			link: "https://github.com/ferdodo/code-dactylo",
+		},
+		{
+			title: "exportcase",
+			tags: ["Tooling", "Typescript", "Rust", "CLI"],
+			illustration: "exportcase.png",
+			description: {
+				en: "Tool to validate TypeScript file naming conventions.",
+				fr: "Outil pour valider les conventions de nommage des fichiers TypeScript.",
+			},
+			github: "https://github.com/ferdodo/exportcase",
+			link: "https://github.com/ferdodo/exportcase",
+		},
+		{
+			title: "classic-otp.fr",
+			tags: ["Web", "API", "OTP"],
+			illustration: "classic-otp.png",
+			description: {
+				en: "Simple service to send one-time passwords via email with a straightforward API.",
+				fr: "Service simple pour envoyer des mots de passe à usage unique par email avec une API directe.",
+			},
+			github: "https://github.com/ferdodo/classic-otp",
+			link: "https://classic-otp.fr",
+		},
+		{
+			title: "Todo",
+			tags: ["Web", "Todo", "Personal"],
+			illustration: "todo.png",
+			description: {
+				en: "Personal todo app inspired by Habitica, combining daily task management with RPG mechanics for motivation and progression.",
+				fr: "Application todo personnelle inspirée par Habitica, combinant la gestion de tâches quotidiennes avec des mécaniques RPG pour la motivation et la progression.",
+			},
+			github: "https://github.com/ferdodo/todo",
+			link: "https://github.com/ferdodo/todo",
+		},
+		{
 			title: "typedoc-plugin-include-example",
 			tags: ["Library", "Typescript", "Npm"],
 			illustration: "typedoc-plugin-include-example.png",
